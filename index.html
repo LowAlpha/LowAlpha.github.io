@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Low Alpha Consulting</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            
+            const mailtoLink = `mailto:contact@lowalpha.co.uk?subject=Contact%20Form%20Submission&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0A%0A${encodeURIComponent(message)}`;
+            
+            window.location.href = mailtoLink;
+        }
+    </script>
 </head>
 <body>
 
@@ -43,7 +56,7 @@
     <section class="contact">
         <h2>Ready to Discuss Your Project?</h2>
         <p>Schedule a consultation to explore how I can support your next project and deliver lasting value.</p>
-        <form>
+        <form onsubmit="sendEmail(event)">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -58,7 +71,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Low Alpha Consulting | Contact: [Your Email]</p>
+        <p>&copy; 2024 Low Alpha Consulting </p>
     </footer>
 
 </body>
